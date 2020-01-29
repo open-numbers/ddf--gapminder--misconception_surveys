@@ -1,0 +1,421 @@
+{
+  "name": "ddf--gapminder--misconception_surveys",
+  "title": "ddf--gapminder--misconception_surveys",
+  "description": "",
+  "version": "0.0.1",
+  "language": {
+    "id": "en",
+    "name": "English"
+  },
+  "translations": [
+    {
+      "id": "sv-SE",
+      "name": "sv-SE"
+    }
+  ],
+  "license": "",
+  "author": "",
+  "resources": [
+    {
+      "path": "ddf--concepts.csv",
+      "name": "ddf--concepts",
+      "schema": {
+        "fields": [
+          {
+            "name": "concept"
+          },
+          {
+            "name": "name"
+          },
+          {
+            "name": "concept_type"
+          },
+          {
+            "name": "domain"
+          }
+        ],
+        "primaryKey": "concept"
+      }
+    },
+    {
+      "path": "ddf--datapoints--responses_no--result--by--survey--question.csv",
+      "name": "responses_no--result--by--survey--question",
+      "schema": {
+        "fields": [
+          {
+            "name": "survey"
+          },
+          {
+            "name": "question"
+          },
+          {
+            "name": "responses_no"
+          },
+          {
+            "name": "result"
+          }
+        ],
+        "primaryKey": [
+          "survey",
+          "question"
+        ]
+      }
+    },
+    {
+      "path": "ddf--entities--q_type.csv",
+      "name": "q_type",
+      "schema": {
+        "fields": [
+          {
+            "name": "q_type"
+          },
+          {
+            "name": "name"
+          }
+        ],
+        "primaryKey": "q_type"
+      }
+    },
+    {
+      "path": "ddf--entities--question.csv",
+      "name": "question",
+      "schema": {
+        "fields": [
+          {
+            "name": "question"
+          },
+          {
+            "name": "phrasing"
+          },
+          {
+            "name": "q_type"
+          },
+          {
+            "name": "answer"
+          },
+          {
+            "name": "correct"
+          },
+          {
+            "name": "very_wrong"
+          },
+          {
+            "name": "explanation"
+          },
+          {
+            "name": "source_name"
+          },
+          {
+            "name": "source_url"
+          },
+          {
+            "name": "tags"
+          },
+          {
+            "name": "flags"
+          },
+          {
+            "name": "discontinued"
+          },
+          {
+            "name": "successor_question"
+          }
+        ],
+        "primaryKey": "question"
+      }
+    },
+    {
+      "path": "ddf--entities--survey.csv",
+      "name": "survey",
+      "schema": {
+        "fields": [
+          {
+            "name": "survey"
+          },
+          {
+            "name": "short_name"
+          },
+          {
+            "name": "long_name"
+          },
+          {
+            "name": "time_start"
+          },
+          {
+            "name": "time_end"
+          },
+          {
+            "name": "samplesize"
+          },
+          {
+            "name": "platform"
+          }
+        ],
+        "primaryKey": "survey"
+      }
+    },
+    {
+      "path": "ddf--entities--tag.csv",
+      "name": "tag",
+      "schema": {
+        "fields": [
+          {
+            "name": "tag"
+          },
+          {
+            "name": "name"
+          },
+          {
+            "name": "parent"
+          }
+        ],
+        "primaryKey": "tag"
+      }
+    }
+  ],
+  "ddfSchema": {
+    "datapoints": [
+      {
+        "primaryKey": [
+          "question",
+          "survey"
+        ],
+        "value": "responses_no",
+        "resources": [
+          "responses_no--result--by--survey--question"
+        ]
+      },
+      {
+        "primaryKey": [
+          "question",
+          "survey"
+        ],
+        "value": "result",
+        "resources": [
+          "responses_no--result--by--survey--question"
+        ]
+      }
+    ],
+    "entities": [
+      {
+        "primaryKey": [
+          "q_type"
+        ],
+        "value": "name",
+        "resources": [
+          "q_type"
+        ]
+      },
+      {
+        "primaryKey": [
+          "question"
+        ],
+        "value": "answer",
+        "resources": [
+          "question"
+        ]
+      },
+      {
+        "primaryKey": [
+          "question"
+        ],
+        "value": "correct",
+        "resources": [
+          "question"
+        ]
+      },
+      {
+        "primaryKey": [
+          "question"
+        ],
+        "value": "discontinued",
+        "resources": [
+          "question"
+        ]
+      },
+      {
+        "primaryKey": [
+          "question"
+        ],
+        "value": "explanation",
+        "resources": [
+          "question"
+        ]
+      },
+      {
+        "primaryKey": [
+          "question"
+        ],
+        "value": "flags",
+        "resources": [
+          "question"
+        ]
+      },
+      {
+        "primaryKey": [
+          "question"
+        ],
+        "value": "phrasing",
+        "resources": [
+          "question"
+        ]
+      },
+      {
+        "primaryKey": [
+          "question"
+        ],
+        "value": "q_type",
+        "resources": [
+          "question"
+        ]
+      },
+      {
+        "primaryKey": [
+          "question"
+        ],
+        "value": "source_name",
+        "resources": [
+          "question"
+        ]
+      },
+      {
+        "primaryKey": [
+          "question"
+        ],
+        "value": "source_url",
+        "resources": [
+          "question"
+        ]
+      },
+      {
+        "primaryKey": [
+          "question"
+        ],
+        "value": "successor_question",
+        "resources": [
+          "question"
+        ]
+      },
+      {
+        "primaryKey": [
+          "question"
+        ],
+        "value": "tags",
+        "resources": [
+          "question"
+        ]
+      },
+      {
+        "primaryKey": [
+          "question"
+        ],
+        "value": "very_wrong",
+        "resources": [
+          "question"
+        ]
+      },
+      {
+        "primaryKey": [
+          "survey"
+        ],
+        "value": "long_name",
+        "resources": [
+          "survey"
+        ]
+      },
+      {
+        "primaryKey": [
+          "survey"
+        ],
+        "value": "platform",
+        "resources": [
+          "survey"
+        ]
+      },
+      {
+        "primaryKey": [
+          "survey"
+        ],
+        "value": "samplesize",
+        "resources": [
+          "survey"
+        ]
+      },
+      {
+        "primaryKey": [
+          "survey"
+        ],
+        "value": "short_name",
+        "resources": [
+          "survey"
+        ]
+      },
+      {
+        "primaryKey": [
+          "survey"
+        ],
+        "value": "time_end",
+        "resources": [
+          "survey"
+        ]
+      },
+      {
+        "primaryKey": [
+          "survey"
+        ],
+        "value": "time_start",
+        "resources": [
+          "survey"
+        ]
+      },
+      {
+        "primaryKey": [
+          "tag"
+        ],
+        "value": "name",
+        "resources": [
+          "tag"
+        ]
+      },
+      {
+        "primaryKey": [
+          "tag"
+        ],
+        "value": "parent",
+        "resources": [
+          "tag"
+        ]
+      }
+    ],
+    "concepts": [
+      {
+        "primaryKey": [
+          "concept"
+        ],
+        "value": "concept_type",
+        "resources": [
+          "ddf--concepts"
+        ]
+      },
+      {
+        "primaryKey": [
+          "concept"
+        ],
+        "value": "domain",
+        "resources": [
+          "ddf--concepts"
+        ]
+      },
+      {
+        "primaryKey": [
+          "concept"
+        ],
+        "value": "name",
+        "resources": [
+          "ddf--concepts"
+        ]
+      }
+    ],
+    "synonyms": []
+  }
+}

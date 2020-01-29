@@ -1,0 +1,4 @@
+q_type,name
+multiple,multiple-choice question
+abc,ABC question - special case of multiple-choice question
+yesno,yes or no question
